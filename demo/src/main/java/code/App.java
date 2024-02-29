@@ -9,7 +9,7 @@ import code.classes.Car;
  */
 public final class App extends PApplet{
 
-    Car car, car2, car3;
+    Car car;
 
     private App() {
     }
@@ -29,22 +29,12 @@ public final class App extends PApplet{
     }
 
     public void setup() {
-        car = new Car(new PVector(100, 100), 100);
-        car2 = new Car(new PVector(100, 100), 10000);
-        car3 = new Car(new PVector(100, 100), 10000000);
+        car = new Car(new PVector(100, 100), 3000000);
     }
 
     public void draw() {
         car.set_target(new PVector(mouseX, mouseY));
         car.update();
         car.render(this);
-
-        car2.set_target(new PVector(mouseX, mouseY));
-        car2.update();
-        car2.render(this);
-
-        car3.set_target(new PVector(mouseX, mouseY));
-        car3.update();
-        car3.render(this);
     }
 }

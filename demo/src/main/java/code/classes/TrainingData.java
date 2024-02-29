@@ -1,5 +1,7 @@
 package code.classes;
 
+import processing.core.PVector;
+
 public class TrainingData {
     public float[][] training_data;
 
@@ -11,7 +13,7 @@ public class TrainingData {
             float y1 = (float) Math.random()*400;
             float x2 = (float) Math.random()*600;
             float y2 = (float) Math.random()*400;
-            float answer;
+float answer;
             if (x1-x2 < 0) {
                 answer = 1;
             } else {

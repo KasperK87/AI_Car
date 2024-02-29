@@ -21,7 +21,11 @@ public class Perceptron {
     }
     
     public float activate(float sum) {
-        return (float)Math.tanh(sum);
+        if (sum > 0){
+            return 1;
+        } else {
+            return -1;
+        }
     }
     
     public void train(float[] inputs, int target) {
