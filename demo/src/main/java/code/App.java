@@ -2,10 +2,15 @@ package code;
 
 import processing.core.*;
 
+import code.classes.Car;
+
 /**
  * Hello world!
  */
 public final class App extends PApplet{
+
+    Car car;
+
     private App() {
     }
 
@@ -17,5 +22,20 @@ public final class App extends PApplet{
         String[] processingArgs = {"MySketch"};
 		App mySketch = new App();
 		PApplet.runSketch(processingArgs, mySketch);
+    }
+
+    public void settings() {
+        size(600, 400, P2D);
+    }
+
+    public void setup() {
+        car = new Car(new PVector(100, 100));
+    }
+
+    public void draw() {
+        car.set_target(new PVector(mouseX, mouseY));
+
+        car.update();
+        car.render(this);
     }
 }
