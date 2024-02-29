@@ -30,8 +30,8 @@ public final class App extends PApplet{
 
     public void setup() {
         car = new Car(new PVector(100, 100), 100);
-        car2 = new Car(new PVector(100, 100), 100);
-        car3 = new Car(new PVector(100, 100), 100);
+        car2 = new Car(new PVector(100, 100), 10000);
+        car3 = new Car(new PVector(100, 100), 10000000);
     }
 
     public void draw() {

@@ -40,7 +40,7 @@ public class Car {
             p.translate(position.x, position.y);
             p.rotate(get_direction());
             p.fill(red, green, blue);
-            p.circle(0, 0, 10);
+            p.rect(0, 0, 30, 10);
         p.popMatrix();
     }
 

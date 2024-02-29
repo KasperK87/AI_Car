@@ -9,14 +9,18 @@ public class Brain {
     
     TrainingData training_data;
 
-    public Brain(int train) {
+    public Brain(int data_points) {
         perceptrons = new Perceptron[2];
         for (int i = 0; i < perceptrons.length; i++) {
             perceptrons[i] = new Perceptron(4);
         }
  
-        training_data = new TrainingData(train);
 
+        training_data = new TrainingData(data_points);
+
+        //feed training data to the perceptrons to train them 
+        //index 4 is the answer for the x direction
+        //index 5 is the answer for the y direction
         for(int i = 0; i < training_data.training_data.length; i++) {
             float[] inputs = {training_data.training_data[i][0], training_data.training_data[i][1], training_data.training_data[i][2], training_data.training_data[i][3]};
             

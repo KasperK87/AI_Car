@@ -12,7 +12,7 @@ public class Perceptron {
         }
     }
     
-    public int feedforward(float[] inputs) {
+    public float feedforward(float[] inputs) {
         float sum = 0;
         for (int i = 0; i < weights.length; i++) {
             sum += inputs[i] * weights[i];
@@ -20,16 +20,12 @@ public class Perceptron {
         return activate(sum);
     }
     
-    public int activate(float sum) {
-        if (sum > 0) {
-            return 1;
-        } else {
-            return -1;
-        }
+    public float activate(float sum) {
+        return (float)Math.tanh(sum);
     }
     
     public void train(float[] inputs, int target) {
-        int guess = feedforward(inputs);
+        float guess = feedforward(inputs);
         float error = target - guess;
         for (int i = 0; i < weights.length; i++) {
             weights[i] += error * inputs[i] * learning_rate;
