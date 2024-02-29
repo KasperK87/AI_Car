@@ -4,7 +4,7 @@ public class TrainingData {
     public float[][] training_data;
 
     public TrainingData(int data_points) {
-        training_data = new float[data_points][5];
+        training_data = new float[data_points][6];
 
         for (int i = 0; i < data_points; i++) {
             float x1 = (float) Math.random()*600;
@@ -12,16 +12,23 @@ public class TrainingData {
             float x2 = (float) Math.random()*600;
             float y2 = (float) Math.random()*400;
             float answer;
-            if (Math.abs(x1-x2) > Math.abs(y1-y2)) {
+            if (x1-x2 < 0) {
                 answer = 1;
             } else {
                 answer = -1;
             }
+            float answer2;
+            if (y1-y2 < 0) {
+                answer2 = 1;
+            } else {
+                answer2 = -1;
+            }
             training_data[i][0] = x1;
-            training_data[i][1] = y2;
-            training_data[i][2] = x1;
+            training_data[i][1] = y1;
+            training_data[i][2] = x2;
             training_data[i][3] = y2;
             training_data[i][4] = answer;
+            training_data[i][5] = answer2;
         }
     }
 
