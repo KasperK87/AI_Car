@@ -4,3 +4,5 @@ demo/.editorconfig
 .vscode/settings.json
 demo/target/classes/code/classes/Car.class
 demo/target/test-classes/code/CarTest.class
+demo/target/classes/code/classes/Brain.class
+demo/target/classes/code/classes/Perceptron.class
