@@ -3,6 +3,8 @@ package code.classes;
 import processing.core.*;
 
 public class Car {
+
+    Brain brain;
     
     PVector position;
     PVector velocity;
@@ -10,6 +12,8 @@ public class Car {
     PVector target;
 
     public Car(PVector position) {
+        brain = new Brain();
+
         this.position = position;
         this.velocity = new PVector(1, 1);
 
@@ -17,7 +21,8 @@ public class Car {
     }
 
     public void update() {
-        velocity = new PVector(target.x, target.y).sub(position).normalize();
+        float[] inputs = {position.x, position.y, target.x, target.y};
+        velocity = brain.get_direction(inputs);
         position.x += velocity.x;
         position.y += velocity.y;
     }
