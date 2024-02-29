@@ -28,7 +28,7 @@ public class Car {
     }
 
     public void render(PApplet p) {
-        p.rectMode(p.CENTER);
+        p.rectMode(PApplet.CENTER);
         
         p.pushMatrix();
             p.translate(position.x, position.y);
