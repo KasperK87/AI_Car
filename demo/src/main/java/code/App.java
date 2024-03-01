@@ -29,10 +29,14 @@ public final class App extends PApplet{
     }
 
     public void setup() {
-        car = new Car(new PVector(100, 100), 3000000);
+        car = new Car(new PVector(300, 200), 1000);
     }
 
     public void draw() {
+        noStroke();
+        fill(255, 10);
+        rect(300,200, 600,400);
+
         car.set_target(new PVector(mouseX, mouseY));
         car.update();
         car.render(this);

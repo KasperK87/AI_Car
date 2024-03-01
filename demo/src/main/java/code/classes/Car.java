@@ -45,7 +45,7 @@ public class Car {
     }
 
     public void train(){
-        brain.train(100000);
+        brain.train(1000);
     }
 
     public void set_target(PVector target) {
