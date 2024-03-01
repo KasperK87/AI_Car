@@ -21,13 +21,17 @@ public class Perceptron {
     }
     
     public float activate(float sum) {
+        return (float)Math.tanh((double)sum);
+    }
+    
+    public float activateSign(float sum){
         if (sum > 0){
             return 1;
         } else {
             return -1;
         }
     }
-    
+
     public void train(float[] inputs, int target) {
         float guess = feedforward(inputs);
         float error = target - guess;

@@ -13,12 +13,17 @@ public class TrainingData {
             float y1 = (float) Math.random()*400;
             float x2 = (float) Math.random()*600;
             float y2 = (float) Math.random()*400;
-float answer;
-            if (x1-x2 < 0) {
+
+            PVector normal = new PVector(x1-x2, y1-y2).normalize();
+
+            float answer;
+            if (normal.x < 0) {
                 answer = 1;
+                
             } else {
                 answer = -1;
             }
+
             float answer2;
             if (y1-y2 < 0) {
                 answer2 = 1;
