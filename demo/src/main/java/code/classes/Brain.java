@@ -14,8 +14,11 @@ public class Brain {
         for (int i = 0; i < perceptrons.length; i++) {
             perceptrons[i] = new Perceptron(4);
         }
- 
 
+        train(data_points);
+    }
+
+    public void train(int data_points){
         training_data = new TrainingData(data_points);
 
         //feed training data to the perceptrons to train them 
@@ -27,7 +30,6 @@ public class Brain {
             perceptrons[0].train(inputs, training_data.training_data[i][4]);
             perceptrons[1].train(inputs, training_data.training_data[i][5]);
         }
-        
     }
        
 

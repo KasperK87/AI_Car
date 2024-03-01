@@ -37,4 +37,8 @@ public final class App extends PApplet{
         car.update();
         car.render(this);
     }
+
+    public void keyReleased(){
+        car.train();
+    }
 }

@@ -44,6 +44,10 @@ public class Car {
         p.popMatrix();
     }
 
+    public void train(){
+        brain.train(100000);
+    }
+
     public void set_target(PVector target) {
         this.target = target;
     }

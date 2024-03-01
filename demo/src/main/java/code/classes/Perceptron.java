@@ -3,7 +3,7 @@ package code.classes;
 public class Perceptron {
         
     float[] weights;
-    float learning_rate = 0.001f;
+    float learning_rate = 0.000001f;
     
     public Perceptron(int n) {
         weights = new float[n];
