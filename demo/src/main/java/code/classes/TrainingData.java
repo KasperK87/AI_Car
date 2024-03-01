@@ -16,20 +16,10 @@ public class TrainingData {
 
             PVector normal = new PVector(x1-x2, y1-y2).normalize();
 
-            float answer;
-            if (normal.x < 0) {
-                answer = 0.5f;
-                
-            } else {
-                answer = -0.5f;
-            }
+            float answer = -normal.x;
 
-            float answer2;
-            if (y1-y2 < 0) {
-                answer2 = 0.5f;
-            } else {
-                answer2 = -0.5f;
-            }
+            float answer2 = -normal.y;
+         
             training_data[i][0] = x1;
             training_data[i][1] = y1;
             training_data[i][2] = x2;
