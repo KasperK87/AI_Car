@@ -32,7 +32,7 @@ public class Perceptron {
         }
     }
 
-    public void train(float[] inputs, int target) {
+    public void train(float[] inputs, float target) {
         float guess = feedforward(inputs);
         float error = target - guess;
         for (int i = 0; i < weights.length; i++) {

@@ -24,8 +24,8 @@ public class Brain {
         for(int i = 0; i < training_data.training_data.length; i++) {
             float[] inputs = {training_data.training_data[i][0], training_data.training_data[i][1], training_data.training_data[i][2], training_data.training_data[i][3]};
             
-            perceptrons[0].train(inputs, (int)training_data.training_data[i][4]);
-            perceptrons[1].train(inputs, (int)training_data.training_data[i][5]);
+            perceptrons[0].train(inputs, training_data.training_data[i][4]);
+            perceptrons[1].train(inputs, training_data.training_data[i][5]);
         }
         
     }
