@@ -14,7 +14,7 @@ public class DeepBrain extends NeuralNet {
         float[] w1 = {0.15f, 0.2f, 0.35f};
         float[] w2 = {0.2f, 0.3f, 0.35f};
         float[] w3 = {0.4f, 0.45f, 0.6f};
-        float[] w4 = {0.45f, 0.55f, 0.6f};
+        float[] w4 = {0.50f, 0.55f, 0.6f};
 
         perceptrons[0][0] = new Perceptron(w1, activations, 0.5f);
         perceptrons[0][1] = new Perceptron(w2, activations, 0.5f);
@@ -67,50 +67,27 @@ public class DeepBrain extends NeuralNet {
     }
 
     public void backpropagate(float[] inputs, float[] targets) {
-        float[] hidden = new float[3];
-        float[] outputs = new float[perceptrons.length];
+        //calculate total_error
+        float error1 = 0.5f*(float)Math.pow(targets[0] - get_direction(inputs).x,2);
+        float error2 = 0.5f*(float)Math.pow(targets[1] - get_direction(inputs).y,2);
 
+        //for test should be 0.28937
+        float total_error = error1+error2;
+
+        //calculate gradient for activation function
+        float[] hidden = new float[3];
         for (int i = 0; i < 2; i++) {
             hidden[i] = perceptrons[0][i].feedforward(inputs);
         }
-        hidden[2] = 1; //bias
 
-        //output layer
-        for (int i = 0; i < 2; i++) {
-            outputs[i] = perceptrons[1][i].feedforward(hidden);
-        }
+        //should be 0,18681
+        float gradient_weight3 = perceptrons[1][0].gradient(hidden[0]);
+        float gradient_weight4 = perceptrons[1][1].gradient(hidden[1]);
 
-        //calculate output layer errors
-        float[] output_errors = new float[2];
-        for (int i = 0; i < 2; i++) {
-            output_errors[i] = targets[i] - outputs[i];
-        }
 
-        //calculate hidden layer errors
-        float[] hidden_errors = new float[3];
-        for (int i = 0; i < 3; i++) {
-            float sum = 0;
-            for (int j = 0; j < 2; j++) {
-                sum += perceptrons[1][j].weights[i] * output_errors[j];
-            }
-            hidden_errors[i] = sum;
-        }
+        //calculate gradient for each weight
 
-        //update output layer weights
-        for (int i = 0; i < 2; i++) {
-            float delta = output_errors[i] * perceptrons[1][i].gradient(perceptrons[1][i].getSums(hidden));
-            for (int j = 0; j < 3; j++) {
-                perceptrons[1][i].weights[j] += perceptrons[1][i].weights[j]*perceptrons[1][i].learning_rate * delta;
-            }
-        }
-
-        //update hidden layer weights
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 3; j++) {
-                float delta = hidden_errors[j] * perceptrons[0][i].gradient(perceptrons[0][i].getSums(inputs)) * inputs[j];
-                perceptrons[0][i].weights[j] += perceptrons[0][i].learning_rate * delta;
-            }
-        }
+        //update output layer
     }
 
     public float[] getWeights(int layer, int perceptron) {

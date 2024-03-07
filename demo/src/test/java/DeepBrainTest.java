@@ -33,8 +33,8 @@ public class DeepBrainTest {
 
         PVector output = brain.get_direction(inputs);
 
-        assertEquals(0.75f, output.x, 0.01);
-        assertEquals(0.77f, output.y, 0.01);
+        assertEquals(0.7514f, output.x, 0.0001);
+        assertEquals(0.7729f, output.y, 0.0001);
 
         float[] targets = {0.01f, 0.99f};
 
