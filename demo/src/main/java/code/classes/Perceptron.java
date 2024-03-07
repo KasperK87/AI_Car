@@ -37,9 +37,21 @@ public class Perceptron {
         }
         return activate(sum);
     }
+
+    public float getSums(float[] inputs) {
+        float sum = 0;
+        for (int i = 0; i < weights.length; i++) {
+            sum += inputs[i] * weights[i];
+        }
+        return sum;
+    }
     
     public float activate(float sum) {
         return activation.activate(sum);
+    }
+
+    public float gradient(float sum) {
+        return activation.gradient(sum);
     }
     
     public float activateSign(float sum){

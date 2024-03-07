@@ -60,5 +60,31 @@ public class PerceptronTest {
         assertEquals(0.197, weights1, 0.01f);
         assertEquals(1.82, weights2, 0.01f);
     }
+
+    @Test
+    public void backpropagation(){
+        float[] weights = {0.5f, 0.2f, 1.83f};
+        Perceptron p = new Perceptron(weights, new Sigmoid());
+
+        //confused about the error value
+        float error = 0.3f - p.feedforward(new float[]{0.1f, 0.3f, 1});
+        float learning_rate = 0.01f;
+
+        float[] inputs = {0.1f, 0.3f, 1};
+
+        float gradient = p.gradient(p.getSums(inputs));
+
+        float[] updatedWeights = {  0.5f+0.5f*error*gradient*learning_rate, 
+                                    0.2f + 0.2f*error*gradient*learning_rate, 
+                                    1.83f+1.83f*error*gradient*learning_rate};
+
+        float weights0 = updatedWeights[0];
+        float weights1 = updatedWeights[1];
+        float weights2 = updatedWeights[2];
+
+        assertEquals(0.499, weights0, 0.01f);
+        assertEquals(0.197, weights1, 0.01f);
+        assertEquals(1.82, weights2, 0.01f);
+    }
     
 }
