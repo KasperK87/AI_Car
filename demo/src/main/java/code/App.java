@@ -3,6 +3,7 @@ package code;
 import processing.core.*;
 
 import code.classes.Car;
+import code.classes.DeepBrain;
 
 /**
  * Hello world!
@@ -10,6 +11,7 @@ import code.classes.Car;
 public final class App extends PApplet{
 
     Car car;
+    Car deepCar;
     int version;
 
     private App() {
@@ -32,6 +34,7 @@ public final class App extends PApplet{
     public void setup() {
         version = 0;
         car = new Car(new PVector(300, 200), 1000);
+        deepCar = new Car(new PVector(300, 300), new DeepBrain(10));
     }
 
     public void draw() {
@@ -44,6 +47,10 @@ public final class App extends PApplet{
         car.update();
         car.render(this);
 
+        deepCar.set_target(new PVector(mouseX, mouseY));
+        deepCar.update();
+        deepCar.render(this);
+
         textSize(32);
         fill(0);
         text("press any key to train: " + version + "v", 10, 32);
@@ -51,6 +58,7 @@ public final class App extends PApplet{
 
     public void keyReleased(){
         car.train();
+        deepCar.train();
         version++;
     }
 }

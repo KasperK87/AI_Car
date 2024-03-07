@@ -42,8 +42,8 @@ public class DeepBrainTest {
 
         PVector output2 = brain.get_direction(inputs);
 
-        //assertTrue(output.x > output2.x);
-        //assertTrue(output.y < output2.y);
+        assertTrue(output.x > output2.x);
+        assertTrue(output.y < output2.y);
 
         float[] weights_perceptron3 = brain.getWeights(1,0);
         float[] weights_perceptron4 = brain.getWeights(1,1);

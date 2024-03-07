@@ -40,7 +40,7 @@ public class Car {
     }
 
     public void update() {
-        float[] inputs = {position.x, position.y, target.x, target.y};
+        float[] inputs = {position.x, position.y, target.x, target.y, 1};
         velocity = brain.get_direction(inputs);
         position.x += velocity.x;
         position.y += velocity.y;
