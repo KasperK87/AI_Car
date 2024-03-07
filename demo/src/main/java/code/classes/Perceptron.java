@@ -24,8 +24,25 @@ public class Perceptron {
         }
     }
 
+    public Perceptron(int n, Activation activation, float learning_rate) {
+        this.activation = activation;
+        this.learning_rate = learning_rate;
+
+        weights = new float[n];
+        for (int i = 0; i < weights.length; i++) {
+            weights[i] = (float) Math.random() * 2 - 1;
+        }
+    }
+
     public Perceptron(float[] weights, Activation activation) {
         this.activation = activation;
+
+        this.weights = weights;
+    }
+
+    public Perceptron(float[] weights, Activation activation, float learning_rate) {
+        this.activation = activation;
+        this.learning_rate = learning_rate;
 
         this.weights = weights;
     }
