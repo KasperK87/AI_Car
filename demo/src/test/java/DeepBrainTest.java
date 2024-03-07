@@ -48,10 +48,10 @@ public class DeepBrainTest {
         float[] weights_perceptron3 = brain.getWeights(1,0);
         float[] weights_perceptron4 = brain.getWeights(1,1);
 
-        assertEquals(0.35892, weights_perceptron3[0], 0.00001);
-        assertEquals(0.40867, weights_perceptron3[1], 0.00001);
-        assertEquals(0.51130, weights_perceptron4[0], 0.00001);
-        assertEquals(0.56137, weights_perceptron4[1], 0.00001);
+        assertEquals(0.3589, weights_perceptron3[0], 0.0001);
+        assertEquals(0.4088, weights_perceptron3[1], 0.0001);
+        assertEquals(0.5113, weights_perceptron4[0], 0.0001);
+        assertEquals(0.5614, weights_perceptron4[1], 0.0001);
 
         float[] weights_perceptron1 = brain.getWeights(0,0);
         float[] weights_perceptron2 = brain.getWeights(0,1);

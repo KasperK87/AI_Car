@@ -80,7 +80,7 @@ public class Perceptron {
     }
 
     public void updateWeight(int nr, float add){
-        weights[nr] -= add*learning_rate;
+        weights[nr] += add*learning_rate;
     }
 
     public void train(float[] inputs, float target) {
