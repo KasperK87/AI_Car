@@ -45,6 +45,22 @@ public class DeepBrainTest {
         assertTrue(output.x > output2.x);
         assertTrue(output.y < output2.y);
 
+        float[] weights_perceptron3 = brain.getWeights(1,0);
+        float[] weights_perceptron4 = brain.getWeights(1,1);
+
+        assertEquals(0.25892, weights_perceptron3[0], 0.00001);
+        assertEquals(0.40867, weights_perceptron3[1], 0.00001);
+        assertEquals(0.51130, weights_perceptron4[0], 0.00001);
+        assertEquals(0.56137, weights_perceptron4[1], 0.00001);
+
+        float[] weights_perceptron1 = brain.getWeights(0,0);
+        float[] weights_perceptron2 = brain.getWeights(0,1);
+
+        assertEquals(0.14978, weights_perceptron1[0], 0.00001);
+        assertEquals(0.19956, weights_perceptron1[1], 0.00001);
+        assertEquals(0.24975, weights_perceptron2[0], 0.00001);
+        assertEquals(0.29950, weights_perceptron2[1], 0.00001);
+
         //second pass
         brain.backpropagate(inputs, targets);
 
@@ -58,7 +74,7 @@ public class DeepBrainTest {
     public void train(){
         TrainingData training_data = new TrainingData(10000);
 
-        DeepBrain brain = new DeepBrain();
+        DeepBrain brain = new DeepBrain(1);
         float initial_error = 0;
 
         for (int i = 0; i < 100; i++) {
@@ -94,7 +110,6 @@ public class DeepBrainTest {
                                 training_data.training_data[i][2], 
                                 training_data.training_data[i][3], 
                                 1}; //bias
-            float[] target = {training_data.training_data[i][4], training_data.training_data[i][5]};
 
             PVector outputs = brain.get_direction(inputs);
             new_error += Math.abs(outputs.x - training_data.training_data[0][4]) + Math.abs(outputs.y - training_data.training_data[0][5]);
