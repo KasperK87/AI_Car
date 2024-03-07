@@ -11,7 +11,7 @@ public class DeepBrainTest {
     public void feedforward(){
         //following test is based mattmazur.com
 
-        float[] inputs = {0.05f, 0.1f};
+        float[] inputs = {0.05f, 0.1f, 1.0f};
 
         DeepBrain brain = new DeepBrain();
 
