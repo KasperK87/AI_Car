@@ -74,20 +74,29 @@ public class DeepBrain extends NeuralNet {
         //for test should be 0.28937
         float total_error = error1+error2;
 
+        //gradient of error
+        float gradient_error1 = Math.abs(targets[0]-get_direction(inputs).x);
+        float gradient_error2 = Math.abs(targets[1]-get_direction(inputs).y);
+
         //calculate gradient for activation function
         float[] hidden = new float[3];
         for (int i = 0; i < 2; i++) {
             hidden[i] = perceptrons[0][i].feedforward(inputs);
         }
+        hidden[2] = 1; //bias
 
         //should be 0,18681
-        float gradient_weight3 = perceptrons[1][0].gradient(hidden[0]);
-        float gradient_weight4 = perceptrons[1][1].gradient(hidden[1]);
+        float gradient_activation3 = perceptrons[1][0].gradient(perceptrons[1][0].getSums(hidden));
+        float gradient_activation4 = perceptrons[1][1].gradient(perceptrons[1][1].getSums(hidden));
 
 
         //calculate gradient for each weight
+        float gradient_weight3 = hidden[0];
 
         //update output layer
+        //chain rule gradient for w5 should be 0,0821
+        float gw5 = gradient_error1*gradient_activation3*gradient_weight3;
+        perceptrons[1][0].updateWeight(0, gw5);
     }
 
     public float[] getWeights(int layer, int perceptron) {
