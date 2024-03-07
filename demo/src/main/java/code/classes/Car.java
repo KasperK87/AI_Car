@@ -4,7 +4,7 @@ import processing.core.*;
 
 public class Car {
 
-    Brain brain;
+    NeuralNet brain;
 
     int red, green, blue;
     
@@ -26,7 +26,7 @@ public class Car {
         this.target = new PVector(0, 0);
     }
 
-    public Car(PVector position, Brain brain) {
+    public Car(PVector position, NeuralNet brain) {
         this.brain = brain;
 
         red = (int) (Math.random() * 255);

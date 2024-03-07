@@ -1,9 +1,8 @@
 package code.classes;
 
 import processing.core.PVector;
-import code.classes.TrainingData;
 
-public class Brain {
+public class Brain extends NeuralNet{
 
     Perceptron[] perceptrons;  
     

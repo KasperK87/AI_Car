@@ -8,3 +8,4 @@ demo/target/classes/code/classes/Brain.class
 demo/target/classes/code/classes/Perceptron.class
 demo/target/classes/code/classes/TrainingData.class
 *.log
+*.class
