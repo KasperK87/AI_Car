@@ -26,6 +26,19 @@ public class Car {
         this.target = new PVector(0, 0);
     }
 
+    public Car(PVector position, Brain brain) {
+        this.brain = brain;
+
+        red = (int) (Math.random() * 255);
+        green = (int) (Math.random() * 255);
+        blue = (int) (Math.random() * 255);
+
+        this.position = position;
+        this.velocity = new PVector(1, 1);
+
+        this.target = new PVector(0, 0);
+    }
+
     public void update() {
         float[] inputs = {position.x, position.y, target.x, target.y};
         velocity = brain.get_direction(inputs);

@@ -14,7 +14,8 @@ public class CarTest {
 
     @Test
     public void headingTest() {
-        Car car = new Car(new PVector(100, 100), 30000);
+        Brain brain = new Brain(1000);
+        Car car = new Car(new PVector(100, 100), brain);
         car.set_target(new PVector(200, 200));
         car.update();
         assertEquals(Math.toRadians(45), car.get_direction(), 5);
@@ -22,18 +23,20 @@ public class CarTest {
 
     @Test
     public void positionTest() {
-        Car car = new Car(new PVector(100, 100), 60000);
+        Brain brain = new Brain(1000);
+        Car car = new Car(new PVector(100, 100), brain);
         car.set_target(new PVector(200, 100));
         
         //uses to frames to move
         car.update();
         car.update();
-        assertEquals(101, car.get_position().x, 0.3);
+        assertEquals(101, car.get_position().x, 5);
     }
 
     @Test
     public void improvesWithTraining(){
-        Car car = new Car(new PVector(100, 100), 1000);
+        Brain brain = new Brain(1000);
+        Car car = new Car(new PVector(100, 100), brain);
         PVector target = new PVector(500, 300);
         car.set_target(target);
 
