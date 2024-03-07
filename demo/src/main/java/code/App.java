@@ -34,7 +34,7 @@ public final class App extends PApplet{
     public void setup() {
         version = 0;
         car = new Car(new PVector(300, 200), 1000);
-        deepCar = new Car(new PVector(300, 300), new DeepBrain(10));
+        deepCar = new Car(new PVector(300, 300), new DeepBrain(1000));
     }
 
     public void draw() {
