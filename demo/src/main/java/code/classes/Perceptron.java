@@ -1,15 +1,33 @@
 package code.classes;
 
 public class Perceptron {
+    Activation activation;
         
     float[] weights;
     float learning_rate = 0.000001f;
     
     public Perceptron(int n) {
+        this.activation = new TanH();
+
         weights = new float[n];
         for (int i = 0; i < weights.length; i++) {
             weights[i] = (float) Math.random() * 2 - 1;
         }
+    }
+
+    public Perceptron(int n, Activation activation) {
+        this.activation = activation;
+
+        weights = new float[n];
+        for (int i = 0; i < weights.length; i++) {
+            weights[i] = (float) Math.random() * 2 - 1;
+        }
+    }
+
+    public Perceptron(float[] weights, Activation activation) {
+        this.activation = activation;
+
+        this.weights = weights;
     }
     
     public float feedforward(float[] inputs) {
@@ -21,7 +39,7 @@ public class Perceptron {
     }
     
     public float activate(float sum) {
-        return (float)Math.tanh((double)sum);
+        return activation.activate(sum);
     }
     
     public float activateSign(float sum){

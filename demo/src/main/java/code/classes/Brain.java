@@ -17,6 +17,15 @@ public class Brain extends NeuralNet{
         train(data_points);
     }
 
+    public Brain(int data_points, Activation activation) {
+        perceptrons = new Perceptron[2];
+        for (int i = 0; i < perceptrons.length; i++) {
+            perceptrons[i] = new Perceptron(4, activation);
+        }
+
+        train(data_points);
+    }
+
     public void train(int data_points){
         training_data = new TrainingData(data_points);
 
