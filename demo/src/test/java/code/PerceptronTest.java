@@ -33,6 +33,9 @@ public class PerceptronTest {
 
     @Test
     public void SigmoidTest(){
+        //following test is based neptune.ai blog post
+        //https://neptune.ai/blog/backpropagation-algorithm-in-neural-networks-guide
+
         float[] weights = {0.5f, 0.2f, 1.83f};
         Perceptron p = new Perceptron(weights, new Sigmoid());
 
