@@ -40,6 +40,22 @@ public class PerceptronTest {
         float output = p.feedforward(inputs);
 
         assertEquals(0.874, output, 0.001);
+
+        double error = 0.5*Math.pow(0.03-(double)output, 2);
+
+        assertEquals(0.356, error, 0.001);
+
+        //train
+
+        p.train(inputs, 0.03f);
+
+        float weights0 = p.getWeights()[0];
+        float weights1 = p.getWeights()[1];
+        float weights2 = p.getWeights()[2];
+
+        assertEquals(0.499, weights0, 0.01f);
+        assertEquals(0.197, weights1, 0.01f);
+        assertEquals(1.82, weights2, 0.01f);
     }
     
 }

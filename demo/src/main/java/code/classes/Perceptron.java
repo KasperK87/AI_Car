@@ -4,7 +4,7 @@ public class Perceptron {
     Activation activation;
         
     float[] weights;
-    float learning_rate = 0.000001f;
+    float learning_rate = 0.01f;
     
     public Perceptron(int n) {
         this.activation = new TanH();
@@ -56,5 +56,9 @@ public class Perceptron {
         for (int i = 0; i < weights.length; i++) {
             weights[i] += error * inputs[i] * learning_rate;
         }
+    }
+
+    public float[] getWeights(){
+        return weights;
     }
 }
