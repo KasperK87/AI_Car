@@ -72,4 +72,8 @@ public class Car {
     public PVector get_position() {
         return position.copy();
     }
+
+    public void set_position(int x, int y) {
+        this.position = new PVector(x, y);
+    }
 }

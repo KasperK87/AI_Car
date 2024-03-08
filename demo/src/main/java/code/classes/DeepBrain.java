@@ -28,8 +28,8 @@ public class DeepBrain extends NeuralNet {
 
         //just for testing, p00 and p01 are never trained so changed them up
         //to give a better result for p10 and p11 which are trained
-        perceptrons[0][0] = new Perceptron(new float[] {1, 0, -1, 0, 0}, new Sigmoid(), 0.0001f);
-        perceptrons[0][1] = new Perceptron(new float[] {0, 1, 0, -1, 0}, new Sigmoid(), 0.0001f);
+        perceptrons[0][0] = new Perceptron(new float[] {1, 0, -1, 0, 0}, new Linear(), 0.0001f);
+        perceptrons[0][1] = new Perceptron(new float[] {0, 1, 0, -1, 0}, new Linear(), 0.0001f);
         perceptrons[1][0] = new Perceptron(3, new TanH(), 0.0001f);
         perceptrons[1][1] = new Perceptron(3, new TanH(), 0.0001f);
 

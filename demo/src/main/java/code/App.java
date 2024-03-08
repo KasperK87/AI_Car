@@ -60,5 +60,10 @@ public final class App extends PApplet{
         car.train();
         deepCar.train();
         version++;
+
+        if (key == 'r') {
+            car.set_position(300, 200);
+            deepCar.set_position(300, 300);
+        }
     }
 }
